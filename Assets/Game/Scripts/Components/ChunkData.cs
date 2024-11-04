@@ -4,5 +4,5 @@ using System;
 [Serializable]
 public struct ChunkData : IBufferElementData
 {
-    public int BlockId;
+    public BlockType BlockId;
 }

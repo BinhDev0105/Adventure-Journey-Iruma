@@ -170,7 +170,7 @@ MonoBehaviour:
           x: 0
           y: 0
           z: 0
-        WorldSize: 10
+        WorldSize: 1
         ChunkSize: 16
         ChunkHeight: 512
         NoiseScale: 0.03

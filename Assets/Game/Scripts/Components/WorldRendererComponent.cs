@@ -5,5 +5,5 @@ using Unity.Entities;
 public struct WorldRendererComponent : IComponentData
 {
     public Entity Prefab;
-    public int NothingToDoHere;
+    public int None;
 }

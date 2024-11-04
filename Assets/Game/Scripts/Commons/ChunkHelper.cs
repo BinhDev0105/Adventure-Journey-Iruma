@@ -36,7 +36,7 @@ public struct ChunkHelper
         return true;
     }
 
-    public static void SetBlock(DynamicBuffer<ChunkData> chunkDatas, int chunkSize, int chunkHeight, float3 localPosition, int blockId)
+    public static void SetBlock(DynamicBuffer<ChunkData> chunkDatas, int chunkSize, int chunkHeight, float3 localPosition, BlockType blockId)
     {
         if (InRangeSize(chunkSize, (int)localPosition.x) &&
             InRangeHeight(chunkHeight, (int)localPosition.y) &&
@@ -46,4 +46,6 @@ public struct ChunkHelper
             chunkDatas.Add(new ChunkData { BlockId = blockId});
         }
     }
+
+    public static float3 GetBlockPositionFromIndex(int chunkSize, int chunkHeight, int index) => GetPositionFromIndex(chunkSize, chunkHeight, index);
 }

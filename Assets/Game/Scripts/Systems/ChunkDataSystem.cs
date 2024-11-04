@@ -11,6 +11,7 @@ public partial struct ChunkDataSystem : ISystem
     {
         state.RequireForUpdate<ChunkData>();
         state.RequireForUpdate<WorldSettingComponent>();
+        state.RequireForUpdate<WorldRendererComponent>();
     }
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
@@ -22,6 +23,7 @@ public partial struct ChunkDataSystem : ISystem
         int worldSize = worldSetting.WorldSize;
         float noiseScale = worldSetting.NoiseScale;
         float waterThreshold = worldSetting.WaterThreshold;
+        var worldRend = SystemAPI.GetSingleton<WorldRendererComponent>();
         var chunkDataJob = new ChunkDataJob()
         {
             ChunkSize = chunkSize,
@@ -42,8 +44,6 @@ public partial struct ChunkDataSystem : ISystem
         public float WaterThreshold;
         void Execute(DynamicBuffer<ChunkData> chunkDatas, ref LocalTransform transform)
         {
-            //chunkDatas.Add(new ChunkData { BlockId = 1});
-            //Debug.Log($"{chunkDatas.Length}");
             GenerateBlock(chunkDatas, ChunkSize, ChunkHeight, NoiseScale, WaterThreshold, transform.Position);
         }
     }
@@ -58,25 +58,30 @@ public partial struct ChunkDataSystem : ISystem
                 int groundPosition = Mathf.RoundToInt(noiseValue * chunkHeight);
                 for (int y = 0; y < chunkHeight; y++)
                 {
-                    int blockID = 1;//Dirt
+                    BlockType blockID = BlockType.DIRT;
                     if (y > groundPosition)
                     {
                         if (y < waterThreshold)
                         {
-                            blockID = 2;
+                            blockID = BlockType.WATER;
                         }
                         else
                         {
-                            blockID = 0;
+                            blockID = BlockType.AIR;
                         }
                     }
                     else if (y == groundPosition)
                     {
-                        blockID = 3;
+                        blockID = BlockType.GRASS_DIRT;
                     }
                     ChunkHelper.SetBlock(chunkDatas, chunkSize, chunkHeight, new float3(x, y, z), blockID);
                 }
             }
         }
+    }
+
+    private static void BlockDebug()
+    {
+
     }
 }
