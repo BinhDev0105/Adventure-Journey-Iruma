@@ -10,6 +10,18 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.charactercontroller": {
+      "version": "1.2.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.physics": "1.2.4",
+        "com.unity.entities": "1.2.4",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "2.5.2",
       "depth": 0,
@@ -233,8 +245,8 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {
-        "com.unity.collections": "2.4.2",
-        "com.unity.burst": "1.7.2"
+        "com.unity.burst": "1.7.2",
+        "com.unity.collections": "2.4.2"
       },
       "url": "https://packages.unity.com"
     },

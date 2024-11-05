@@ -3,7 +3,7 @@ using System;
 using Unity.Mathematics;
 
 [Serializable]
-public struct WorldSettingComponent : IComponentData
+public struct WorldSetting : IComponentData
 {
     public float3 playerPosition;
     public int WorldSize;

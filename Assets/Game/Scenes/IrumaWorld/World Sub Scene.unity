@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 750512523}
   - component: {fileID: 750512524}
   m_Layer: 0
-  m_Name: WorldSetting
+  m_Name: WorldAuthoring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,20 +163,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f054e0b47684304a843a4963ceebed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InfoArray:
-    ComponentArray:
-    - AuthoringData:
-        playerPosition:
-          x: 0
-          y: 0
-          z: 0
-        WorldSize: 1
-        ChunkSize: 16
-        ChunkHeight: 512
-        NoiseScale: 0.03
-        WaterThreshold: 50
-      References:
-      - {fileID: 0}
+  playerPosition:
+    x: 0
+    y: 0
+    z: 0
+  WorldSize: 1
+  ChunkSize: 16
+  ChunkHeight: 100
+  NoiseScale: 0.03
+  WaterThreshold: 50
 --- !u!1 &1421329905
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +183,7 @@ GameObject:
   - component: {fileID: 1421329906}
   - component: {fileID: 1421329907}
   m_Layer: 0
-  m_Name: WorldRenderer
+  m_Name: WorldPrefabAuthoring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,15 +213,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1421329905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3720e945ed24a3948af8f63013bcf671, type: 3}
+  m_Script: {fileID: 11500000, guid: 49c0712e58cf51d44beeb7ee5831ff7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InfoArray:
-    ComponentArray:
-    - AuthoringData:
-        NothingToDoHere: 0
-      References:
-      - {fileID: 5591635833726662227, guid: 7dfb9854cf5feba459e8ade0c0203fca, type: 3}
+  Prefab: {fileID: 790574548671507030, guid: 7dfb9854cf5feba459e8ade0c0203fca, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

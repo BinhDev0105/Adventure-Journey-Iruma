@@ -10,8 +10,8 @@ public partial struct CreateChunkSystem : ISystem
     [BurstCompile]
     public void OnCreate(ref SystemState state)
     {
-        state.RequireForUpdate<WorldSettingComponent>();
-        state.RequireForUpdate<WorldRendererComponent>();
+        state.RequireForUpdate<WorldSetting>();
+        state.RequireForUpdate<WorldPrefab>();
     }
 
     [BurstCompile]
@@ -19,8 +19,8 @@ public partial struct CreateChunkSystem : ISystem
     {
         state.Enabled = false;
 
-        var worldSetting = SystemAPI.GetSingleton<WorldSettingComponent>();
-        var worldRenderer = SystemAPI.GetSingleton<WorldRendererComponent>();
+        var worldSetting = SystemAPI.GetSingleton<WorldSetting>();
+        var worldRenderer = SystemAPI.GetSingleton<WorldPrefab>();
 
         var chunks = WorldHelper.GetChunkPositionAroundPlayer(worldSetting.WorldSize, worldSetting.ChunkSize, worldSetting.ChunkHeight, new float3(0, 0, 0));
 

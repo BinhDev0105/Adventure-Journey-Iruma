@@ -2,8 +2,7 @@ using System;
 using Unity.Entities;
 
 [Serializable]
-public struct WorldRendererComponent : IComponentData
+public struct WorldPrefab : IComponentData
 {
     public Entity Prefab;
-    public int None;
 }
